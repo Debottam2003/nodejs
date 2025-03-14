@@ -1,0 +1,25 @@
+/* .body{
+animation: appear 2s linear;
+animation-timeline: view();
+animation-range: entry 0 cover 40%;
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+} */
+.body {
+    opacity: 0; /* Start invisible */
+    transform: translateX(-100px);
+    transition: opacity 2s, transform 2s; /* Smooth transition */
+}
+
+.body.visible {
+    opacity: 1;
+    transform: translateX(0);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+  </head>
+  <body>
+    <%- include('header') %>
+    <!-- This is the header of the website -->
+    <p style="height: 200px; background-color: rgb(255, 255, 255)">
+      This is a server rendered page build by <%= name %>
+    </p>
+    <%- include('footer') %> <%- include('header') %>
+    <!-- This is the header of the website -->
+    <p style="height: 200px; background-color: rgb(255, 255, 255)">
+      This is a server rendered page build by <%= name %>
+    </p>
+    <%- include('footer') %> <%- include('header') %>
+    <!-- This is the header of the website -->
+    <p style="height: 200px; background-color: rgb(255, 255, 255)">
+      This is a server rendered page build by <%= name %>
+    </p>
+    <%- include('footer') %>
+    <div class="body" style="padding: 0; margin: 0; width: 100%; height: 100vh">
+      <% name = "Debottam Kar" %> <%- include('header') %>
+      <!-- This is the header of the website -->
+      <p style="height: 200px; background-color: rgb(255, 255, 255)">
+        This is a server rendered page build by <%= name %>
+      </p>
+      <%- include('footer') %>
+      <!-- This is the footer of the website -->
+      <%- include('header') %>
+      <!-- This is the header of the website -->
+      <p style="height: 200px; background-color: rgb(255, 255, 255)">
+        This is a server rendered page build by <%= name %>
+      </p>
+      <%- include('footer') %> <%- include('header') %>
+      <!-- This is the header of the website -->
+      <p style="height: 200px; background-color: rgb(255, 255, 255)">
+        This is a server rendered page build by <%= name %>
+      </p>
+      <%- include('footer') %> <%- include('header') %>
+      <!-- This is the header of the website -->
+      <p style="height: 200px; background-color: rgb(255, 255, 255)">
+        This is a server rendered page build by <%= name %>
+      </p>
+      <%- include('footer') %>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".body");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        ); // Trigger when 20% is visible
+
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

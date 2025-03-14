@@ -1,0 +1,26 @@
+const express = require('express');
+const app = express();
+// app.use(function(req,res,next){
+//     console.log("middleware");
+//     next();
+// });
+app.use(express.json());
+app.use(express.urlencoded({encoded: true}));
+app.get("/express1",function(req,res,next){
+    let i = 1;
+    if(i === 0){
+        return next(new Error("Not implemented"));
+    }
+    else{
+        res.send("Hi I am Debottam Kar.");
+    }
+});
+app.get("/express3",function(req,res){
+    res.send("hello express3");
+});
+app.use(function(err,req,res,next){
+         console.error(err);
+        //console.error(err.stack);
+        res.status(500).send("something went wrong");
+});
+app.listen(3003);

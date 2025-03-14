@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatting App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        #chat-container {
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        #messages h3 {
+            background: #e1ffc7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        #input-container {
+            display: flex;
+        }
+        #message {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        #send {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send:hover {
+            background: #218838;
+        }
+        #chat_area{
+            width: 100%;
+            height: 500px;
+            background-color: rgb(131, 167, 239);
+            overflow: auto;
+        }
+        h3{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>Chatting</h1>
+        <div id="chat_area"></div>
+        <div id="messages"></div>
+        <div id="input-container">
+            <input type="text" placeholder="Enter Here" id="message" />
+            <button id="send">Send</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+        let send = document.getElementById('send');
+        let message = document.getElementById('message');
+        let chatarea = document.querySelector('#chat_area');
+
+        const socket = io();
+        //on -> receiver emit -> sender
+        // socket.on("message",(message)=>{ // receiving data
+        //     console.log(message);
+        //     let msg = document.createElement('h3');
+        //     msg.innerHTML = message;
+        //     chatarea.appendChild(msg);
+        // })
+        const username = prompt('Enter your username:');
+        socket.emit('register', username);
+
+        socket.on("private_message",({message, from})=>{ // receiving data
+            console.log(message);
+            let msg = document.createElement('h3');
+            msg.innerHTML = message + '...' + from;
+            chatarea.appendChild(msg);
+        })
+
+        send.addEventListener('click', (event) => {
+            let data = message.value;
+            let msg = document.createElement('h3');
+            chatarea.appendChild(msg);
+            console.log(message.value);
+            msg.innerHTML = data;
+            chatarea.appendChild(msg);
+            message.value = "";
+            //local storage use to make and test for dynamic
+            socket.emit("private_message",{to: 'debottam',message: data}); // sending data
+        });
+
+    </script>
+</body>
+</html>

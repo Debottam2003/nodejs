@@ -1,0 +1,72 @@
+[
+    {
+        "Title":"Inception",
+        "Director":"Christopher Nolan",
+        "Year":2010,
+        "Genre":"Sci-Fi",
+        "Rating":8.8
+    },
+    {
+        "Title":"The Godfather",
+        "Director":"Francis Ford Coppola",
+        "Year":1972,
+        "Genre":"Crime",
+        "Rating":9.2
+    },
+    {
+        "Title":"Pulp Fiction",
+        "Director":"Quentin Tarantino",
+        "Year":1994,
+        "Genre":"Crime",
+        "Rating":8.9
+    },
+    {
+        "Title":"The Dark Knight",
+        "Director":"Christopher Nolan",
+        "Year":2008,
+        "Genre":"Action",
+        "Rating":9.0
+    },
+    {
+        "Title":"Fight Club",
+        "Director":"David Fincher",
+        "Year":1999,
+        "Genre":"Drama",
+        "Rating":8.8
+    },
+    {
+        "Title":"Forrest Gump",
+        "Director":"Robert Zemeckis",
+        "Year":1994,
+        "Genre":"Drama",
+        "Rating":8.8
+    },
+    {
+        "Title":"The Matrix",
+        "Director":"Lana & Lilly Wachowski",
+        "Year":1999,
+        "Genre":"Sci-Fi",
+        "Rating":8.7
+    },
+    {
+        "Title":"Interstellar",
+        "Director":"Christopher Nolan",
+        "Year":2014,
+        "Genre":"Sci-Fi",
+        "Rating":8.6
+    },
+    {
+        "Title":"Gladiator",
+        "Director":"Ridley Scott",
+        "Year":2000,
+        "Genre":"Action",
+        "Rating":8.5
+    },
+    {
+        "Title":"Titanic",
+        "Director":"James Cameron",
+        "Year":1997,
+        "Genre":"Romance",
+        "Rating":7.9
+    }
+]
