@@ -12,15 +12,15 @@ app.get("/express1",function(req,res,next){
         return next(new Error("Not implemented"));
     }
     else{
-        res.send("Hi I am Debottam Kar.");
+       return res.send("Hi I am Debottam Kar.");
     }
 });
 app.get("/express3",function(req,res){
-    res.send("hello express3");
+   return res.send("hello express3");
 });
 app.use(function(err,req,res,next){
          console.error(err);
         //console.error(err.stack);
-        res.status(500).send("something went wrong");
+       return res.status(500).send("something went wrong");
 });
 app.listen(3003);
