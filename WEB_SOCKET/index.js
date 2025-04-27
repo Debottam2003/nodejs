@@ -4,7 +4,7 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {cors: {origin: "*"}}); // Enable CORS for all origins
 
 const users = {}; // Store connected users with their IDs
 
@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
+
+    socket.on('message', (msg) => {
+        console.log('Message received:', msg);
+        // Broadcast the message to all connected clients
+        io.emit('message', msg);
+    });
 
     // Handle user registration (identify a user by a unique name or ID)
     socket.on('register', (username) => {

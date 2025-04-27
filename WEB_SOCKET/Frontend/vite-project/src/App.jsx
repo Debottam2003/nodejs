@@ -4,17 +4,19 @@ import io from "socket.io-client";
 const App = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const socket = io("http://localhost:5000"); // Establish socket connection
+  const [socket, setSocket] = useState(null); // Hold socket in state
 
   useEffect(() => {
+    const newSocket = io("http://localhost:5000");
+    setSocket(newSocket);
     // Listen for messages from the server
-    socket.on("message", (msg) => {
+    newSocket.on("message", (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
     });
 
     // Clean up on unmount
     return () => {
-      socket.disconnect();
+      newSocket.disconnect();
     };
   }, []);
 
