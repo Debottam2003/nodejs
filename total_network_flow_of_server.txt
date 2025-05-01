@@ -5,4 +5,4 @@ Incoming Radio Waves ➡️ NIC Converts to Binary
                     ⬇️
        Transport Layer Routes to Port 5000
                     ⬇️
-       Node.js Express App Processes Request
+       Node.js Express App Processes Request -> response
