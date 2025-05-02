@@ -1,1 +1,11 @@
-[{"title":"bath","content":"i have bath"},{"title":"eat","content":"i ate rice"}]
+[
+    {"title":"game","content":"play coc"},
+    {"title":"study","content":"read a book"},
+    {"title":"exercise","content":"do yoga"},
+    {"title":"shop","content":"buy groceries"},
+    {"title":"cook","content":"make pasta"},
+    {"title":"clean","content":"tidy the room"},
+    {"title":"work","content":"complete project"},
+    {"title":"relax","content":"watch a movie"},
+    {"title":"sleep","content":"take a nap"}
+]
