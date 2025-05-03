@@ -1,0 +1,28 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import router from './routes/userroutes.js'
+
+const app = express();
+dotenv.config();
+const PORT = process.env.PORT || 4000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
+
+app.use(cors());
+app.use('/api', router);
+
+async function dbconnect() {
+    try {
+        await mongoose.connect(MONGO_URI);
+        console.log("DataBase connected.");
+        app.listen(PORT, () => {
+            console.log("The server is running on port:", PORT);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+dbconnect();
