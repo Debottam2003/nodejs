@@ -8,6 +8,7 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
+// console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
 
 app.use(cors());
 app.use('/api', router);
