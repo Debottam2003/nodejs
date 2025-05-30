@@ -1,9 +1,10 @@
 let express = require('express');
 let cors = require('cors');
 let { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-    connectionString: "postgresql://users_enke_user:yLrA5s85Ro4tPkZ1BAVdd8v4vrIYAusg@dpg-d0svog49c44c73fj8mig-a.oregon-postgres.render.com/users_enke",
+    connectionString: process.env.URI,
     ssl: {
         rejectUnauthorized: false,
     },
