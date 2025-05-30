@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './routes/userroutes.js'
+import ejs from 'ejs';
 
 const app = express();
 dotenv.config();
@@ -11,6 +12,8 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase
 // console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
 
 app.use(cors());
+app.set('view engine', 'ejs');
+
 app.use('/api', router);
 
 async function dbconnect() {
