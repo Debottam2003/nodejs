@@ -22,6 +22,15 @@ app.set('view engine', 'ejs');
 console.log(__dirname);
 console.log(__filename);
 
+app.get("/form", (req, res) => {
+    res.render('form');
+});
+
+app.post("/formSubmit", (req, res) => {
+    console.log(req.body);
+    res.send('form submitted');
+});
+
 app.get('/home', (req, res) => {
     res.render('home', { data: [{ name: "debottam kar", age: 22 }] });
 });

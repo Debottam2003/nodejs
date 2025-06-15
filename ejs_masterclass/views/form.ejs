@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .complex-form {
+            background: #fff;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(60,60,90,0.15);
+        }
+        .complex-form h2 {
+            margin-top: 0;
+            color: #2d3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+        .form-group label {
+            flex: 0 0 180px;
+            font-weight: 500;
+            color: #34495e;
+            margin-right: 18px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            flex: 1 1 320px;
+            padding: 8px 12px;
+            border: 1px solid #cfd8dc;
+            border-radius: 4px;
+            font-size: 1em;
+            background: #f9fafb;
+            transition: border 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #5b9bd5;
+            outline: none;
+        }
+        .sub-fields {
+            margin-left: 198px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            border-left: 2px solid #e3e8ee;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .form-actions {
+            text-align: right;
+            margin-top: 24px;
+        }
+        .form-actions button {
+            background: #5b9bd5;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-actions button:hover {
+            background: #4178be;
+        }
+        @media (max-width: 600px) {
+            .complex-form {
+                padding: 18px 8px;
+            }
+            .form-group label, .sub-fields {
+                margin-left: 0;
+                flex-basis: 100%;
+            }
+        }
+    </style>
+
+    <form class="complex-form" action="/formSubmit" method="post">
+        <h2>Registration Form</h2>
+        <div class="form-section">
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input id="fullname" name="fullname" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input id="dob" name="dob" type="date" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="photo">Profile Photo</label>
+                <input id="photo" name="photo" type="file" accept="image/*">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Contact Details</h3>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" pattern="[0-9\-]+" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select...</option>
+                    <option>USA</option>
+                    <option>India</option>
+                    <option>UK</option>
+                    <option>Germany</option>
+                    <option>Australia</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Social Profiles</label>
+                <div class="sub-fields">
+                    <div class="form-group">
+                        <label for="twitter" style="flex-basis:120px;">Twitter</label>
+                        <input id="twitter" name="twitter" type="url" placeholder="https://twitter.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin" style="flex-basis:120px;">LinkedIn</label>
+                        <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/username">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Professional Details</h3>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input id="occupation" name="occupation" type="text">
+            </div>
+            <div class="form-group">
+                <label for="experience">Years of Experience</label>
+                <input id="experience" name="experience" type="number" min="0" max="50">
+            </div>
+            <div class="form-group">
+                <label>Skills</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="skills" value="js" class="skills"> JavaScript</label>
+                    <label><input type="checkbox" name="skills" value="python" class="skills"> Python</label>
+                    <label><input type="checkbox" name="skills" value="java" class="skills"> Java</label>
+                    <label><input type="checkbox" name="skills" value="csharp" class="skills"> C#</label>
+                    <label><input type="checkbox" name="skills" value="design" class="skills"> UI/UX Design</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Certifications</label>
+                <div class="sub-fields">
+                    <div class="form-group">
+                        <label for="cert1" style="flex-basis:120px;">Certification 1</label>
+                        <input id="cert1" name="cert1" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="cert2" style="flex-basis:120px;">Certification 2</label>
+                        <input id="cert2" name="cert2" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Account Preferences</h3>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required>
+            </div>
+            <div class="form-group">
+                <label for="language">Preferred Language</label>
+                <select id="language" name="language">
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>German</option>
+                    <option>French</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Notifications</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="notif_email"> Email</label>
+                    <label><input type="checkbox" name="notif_sms"> SMS</label>
+                    <label><input type="checkbox" name="notif_push"> Push</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Agreements</h3>
+            <div class="form-group">
+                <label></label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="terms" required> I agree to the Terms & Conditions</label>
+                    <label><input type="checkbox" name="newsletter"> Subscribe to newsletter</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let skillSet = [];
+            const skills = document.querySelectorAll('.skills');
+            skills.forEach((skill) => {
+                if(skill.checked) {
+                    skillSet.push(skill.value);
+                }
+            });
+            console.log(skillSet);
+            // form.submit();
+        });
+    </script>
+</body>
+</html>
