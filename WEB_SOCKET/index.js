@@ -4,7 +4,7 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {cors: {origin: "*"}}); // Enable CORS for all origins
+const io = new Server(server, { cors: { origin: "*" } }); // Enable CORS for all origins
 
 const users = {}; // Store connected users with their IDs
 
@@ -33,11 +33,11 @@ io.on('connection', (socket) => {
         if (recipientSocketId) {
             // Send the message only to the recipient
             let from = '';
-            for(const k in users){
-              if(users[k] === socket.id){
-                from = k;
-                break
-              }
+            for (const k in users) {
+                if (users[k] === socket.id) {
+                    from = k;
+                    break
+                }
             }
             io.to(recipientSocketId).emit('private_message', { message, from: from });
         } else {
