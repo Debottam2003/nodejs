@@ -3,6 +3,10 @@ console.log(buffer); // Output: <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
 console.log(buffer.toString('utf8')); // Output: hello world
 console.log(buffer.toString('hex')); // Output: 68656c6c6f20776f726c64
 
+for (let i of buffer) {
+    console.log(i);
+} 
+
 let arrayBuffer = new ArrayBuffer(16);
 console.log(arrayBuffer); // Output: ArrayBuffer { byteLength: 16 }
 let view = new Uint8Array(arrayBuffer);
