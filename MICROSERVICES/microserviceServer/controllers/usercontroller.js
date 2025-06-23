@@ -3,8 +3,9 @@ import users from '../database/usermodel.js'
 export let getuser = async function (req, res) {
     try {
         let userdata = await users.find();
-        res.status(200).render('index.ejs', {users: userdata});
-        console.log(userdata);
+        // res.status(200).render('index.ejs', {users: userdata});
+        res.status(200).json({ users: userdata });
+        // console.log(userdata);
     } catch (error) {
         res.status(500).send({ error: "An error occurred while fetching user data." });
     }
