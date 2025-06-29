@@ -1,13 +1,14 @@
-import express, { Request, Response } from 'express';
-import router from './routes'
+import express from "express";
+import type { Request, Response } from "express";
+// import router from "./routes";
 
 const app = express();
-const PORT = 5000;
+const PORT = 4000;
 
 app.use(express.json());
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from Express + TypeScript!');
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello from Express + TypeScript!");
 });
 
 app.listen(PORT, () => {
