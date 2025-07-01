@@ -1,4 +1,5 @@
 let fs = require("fs");
+let chalk = require("chalk");
 let prompt = require("prompt-sync");
 let input = prompt();
 let arr;
@@ -11,7 +12,7 @@ else {
 }
 
 while (true) {
-    console.log("To-Do List 1.NEW ACTIVITY    2.DELETE ACTIVITY    3.SHOW ACTIVITY   4.Exit  :->");
+    console.log(chalk.magenta("To-Do List 1.NEW ACTIVITY    2.DELETE ACTIVITY    3.SHOW ACTIVITY   4.Exit  :->"));
     let choice = Number(input("Enter choice: "));
 
     if (arr.length === 0 && (choice === 2 || choice === 3)) {
