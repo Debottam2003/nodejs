@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <% name = "Rony Kar" %>
     <h1>This is the home page</h1>
     <% if(!data) { %>
     <h3>No user data</h3>
-    <% } else { %>
-        <% data.forEach((user) => { %>
-           <h2>Name: <%= user.name %></h2>
-           <h2>Age: <%= user.age %></h2>
-        <% }) %>
-    <% } %>
+    <% } else { %> <% data.forEach((user) => { %>
+    <h2>Name: <%= user.name %></h2>
+    <h2>Age: <%= user.age %></h2>
+    <% }) %> <% } %>
     <a href="/login">Login</a>
     <script>
-        const user_data = <%- JSON.stringify(data) %>;
-        console.log(user_data);
-        console.log("<%= name %>");
+      // let fruits = "["apple","banana","cherry"]"; ❌ "<%- JSON.stringify(data) %>"
+      // "<%= data %>"; "<%- data %>";
+      // [{&#34;name&#34;:&#34;debottam kar&#34;,&#34;age&#34;:22}] if use "<%= JSON.stringify(data) %>"
+      const user_data = <%- JSON.stringify(data) %>;
+      console.log(user_data);
+      console.log("<%- name %>");
     </script>
-</body>
+  </body>
 </html>
