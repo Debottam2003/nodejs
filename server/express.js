@@ -5,8 +5,13 @@ let app = express();
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'elements')))
 console.log(__dirname);
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
+});
+
+app.get("/api", (req, res) => {
+    res.send("hello wrold");
 });
 
 app.post("/login", (req, res) => {
