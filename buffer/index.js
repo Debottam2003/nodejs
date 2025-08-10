@@ -22,7 +22,8 @@ for (let i of view) {
 console.log(view.buffer); // Output: ArrayBuffer { byteLength: 16 }
 console.log(view.byteLength); // Output: 16
 
-const buf = Buffer.alloc(10);
+const buf = Buffer.alloc(100, 100);
 console.log(buf);
+while(true);
 // Output: <Buffer 00 00 00 00 00 00 00 00 00 00>
 
