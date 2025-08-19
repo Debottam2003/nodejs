@@ -2,8 +2,8 @@ import pool from 'mysql2/promise';
 
 const db = pool.createPool({
     host: '192.168.183.80',
-    user: 'root',
-    password: '',
+    user: 'mysql',
+    password: 'mysql2003',
     database: 'debottam',
     waitForConnections: true,
     connectionLimit: 50,
