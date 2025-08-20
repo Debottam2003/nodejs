@@ -1,0 +1,43 @@
+1. What happens when you call mysql.createConnection({...})
+
+host: '192.168.1.100' → the IP of the database server.
+
+port: 3306 → the port MySQL is listening on.
+
+user/password → credentials for authentication.
+
+When you call connection.connect(...):
+
+Your client (Node.js script) opens a TCP connection to 192.168.1.100:3306.
+
+The database server receives the request and sees the source IP of the client automatically.
+
+MySQL checks:
+
+Does a user exist matching the username and the client’s IP?
+
+Does the password match?
+
+If both pass → connection is established.
+
+2. Where the client’s network requests are “reached”
+
+The DB server listens on the IP and port you specify (192.168.1.100:3306).
+
+Any client in the same network that can reach that IP and port can try to connect.
+
+The DB server uses the client’s source IP to check host restrictions (like 'alice'@'192.168.1.%').
+
+You don’t manually send your IP — it’s part of the TCP connection itself.
+
+3. Analogy
+
+Database server IP & port = the door to the building
+
+Client opens a TCP connection = knocks on the door
+
+Database sees the source IP = sees who is knocking
+
+Username/password = the ID card to get inside
+
+So yes — the client’s network requests are “reached” at the DB server’s IP and port, and the DB server automatically sees the client IP to enforce host restrictions.
